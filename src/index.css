@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Lacquer&display=swap');
+
+:root {
+    --strawberry : #F75590;
+    --powder : #FCE4D8;
+    --jasmine : #FBD87F;
+    --aqua : #BFF8FE;
+    --mint : #10FFCB;
+}
+
+body {
+    margin : 0;
+    padding : 0;
+    background-color : var(--powder);
+}

@@ -1,11 +1,11 @@
-.login { 
-    padding : 10px;
+.login, .signup { 
     margin : 15px auto;
     border-radius : 10px;
     width : max-content;
+    padding : 10px;
     background-color: var(--jasmine);
     input, label {
-        font-family : "Faculty Glyphic";
+        font-family : "Faculty Glyphic", sans-serif;
         display : table-cell;
     }
     input {
@@ -35,5 +35,14 @@
         background-color : var(--strawberry);
         border-radius : 10px;
         border : none;
+    }
+    .error {
+        background-color : var(--mint);
+        font-family : "Faculty Glyphic", sans-serif;
+        text-align : center;
+        width : 80%;
+        margin : 10px auto 0 auto;
+        padding : 10px;
+        border-radius : 10px
     }
 }

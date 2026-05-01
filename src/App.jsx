@@ -1,7 +1,7 @@
 import { useState } from "react"
-import Login from "./pages/auth/Login.jsx";
-import Signup from "./pages/auth/Signup.jsx"
+import { Outlet } from "react-router";
 import userContext from "./userContext.jsx";
+import Navbar from "./pages/navbar/Navbar.jsx";
 
 function App(){
     const [user, setUser] = useState({});
@@ -12,7 +12,8 @@ function App(){
     }
     return (
         <userContext.Provider value={{user, accessToken, logIn}}>
-            <Signup/>
+            <Navbar/>
+            <Outlet/>
         </userContext.Provider>
     )
 }

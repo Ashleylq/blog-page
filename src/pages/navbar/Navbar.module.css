@@ -1,0 +1,33 @@
+.title {
+    font-family : "Lacquer"
+}
+
+.container {
+    display : grid;
+    grid-template-columns: 50% 50%;
+    margin : 0 20px;
+}
+
+.link {
+    text-decoration: none;
+    color : black;
+    font-family : "Faculty Glyphic";
+    padding : 5px;
+}
+
+.bLink{
+    background-color : var(--mint);
+    border-radius : 7px;
+}
+
+.nav{
+    align-self : center;
+    justify-self: right;
+    display : flex;
+    width : max-content;
+    background-color : var(--aqua);
+    padding : 10px;
+    border-radius : 10px;
+    justify-content : space-evenly;
+    gap : 10px;
+}

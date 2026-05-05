@@ -27,7 +27,6 @@ function Signup(){
         try{
             const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}auth/signup`, {
                 method : "POST",
-                credentials : "include",
                 headers : {
                     "Content-Type" : "application/json"
                 },
@@ -43,7 +42,7 @@ function Signup(){
                 setError(result.errors[0].msg)
             }
             else if(res.status == 200){
-                logIn(result.accessToken, result.user)
+                logIn(result.token, result.user)
                 navigate("/")
             }
             else {

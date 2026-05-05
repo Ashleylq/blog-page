@@ -3,7 +3,8 @@ import { createContext } from "react";
 const userContext = createContext({
     user : {},
     accessToken : null,
-    logIn : () => {}
+    logIn : () => {},
+    getCredentials : () => {}
 })
 
 export default userContext

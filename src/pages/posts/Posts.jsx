@@ -5,9 +5,7 @@ function Posts(){
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         async function fetchPosts(){
-            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}posts`, {
-                credentials : "include"
-            })
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}posts`)
             const result = await res.json();
             if(res.status == 200){
                 setPosts(result);

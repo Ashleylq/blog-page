@@ -20,15 +20,14 @@ function Login(){
                 body : JSON.stringify({
                     "username" : usernameRef.current.value,
                     "password" : passwordRef.current.value
-                }),
-                credentials : "include"
+                })
             })
             const result = await res.json();
             if(res.status == 401){
                 setError(result.message)
             }
             else if(res.status == 200){
-                logIn(result.accessToken, result.user);
+                logIn(result.token, result.user);
                 navigate("/")
             }
             else {
@@ -36,6 +35,7 @@ function Login(){
             }
         }
         catch(err){
+            alert(err)
             throw(err);
         }
     }

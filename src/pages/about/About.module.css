@@ -1,0 +1,11 @@
+.container {
+    font-family: "Faculty Glyphic";
+    h1 {
+        text-align : center
+    }
+    p {
+        width : 40%;
+        margin : auto;
+        text-align : justify
+    }
+}

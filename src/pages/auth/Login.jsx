@@ -1,8 +1,10 @@
 import { useContext, useRef, useState } from "react"
 import styles from "./auth.module.css"
 import userContext from "../../userContext";
+import { useNavigate } from "react-router";
 
 function Login(){
+    const navigate = useNavigate();
     const [ error, setError ] = useState(null);
     const { logIn } = useContext(userContext)
     const usernameRef = useRef(null);
@@ -10,7 +12,7 @@ function Login(){
     const submit = async function (e){
         e.preventDefault();
         try {
-            const res = await fetch("https://blog-page-api.onrender.com/auth/login", {
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}auth/login`, {
                 method : "POST",
                 headers : {
                     "Content-Type" : "application/json"
@@ -27,6 +29,7 @@ function Login(){
             }
             else if(res.status == 200){
                 logIn(result.accessToken, result.user);
+                navigate("/")
             }
             else {
                 throw new Error("Internal Server Error");

@@ -1,0 +1,15 @@
+.postContainer{
+    margin : 20px;
+    display : grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.post {
+    background-color : var(--jasmine);
+    border-radius : 10px;
+    padding : 10px;
+    font-weight : bold;
+    font-size : 1.5rem;
+    font-family : "Faculty Glyphic";
+    text-align : center;
+}

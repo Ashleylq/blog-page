@@ -31,7 +31,7 @@ function Login(){
                 navigate("/")
             }
             else {
-                throw new Error("Internal Server Error");
+                setError("Oops! looks like there has been an error on our side :(")
             }
         }
         catch(err){

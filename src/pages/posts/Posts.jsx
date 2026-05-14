@@ -3,7 +3,8 @@ import styles from "./Posts.module.css";
 import { NavLink } from "react-router";
 
 function Posts(){
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState(null);
+    const [error, setError] = useState(null)
     useEffect(() => {
         async function fetchPosts(){
             const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}posts`)
@@ -12,11 +13,17 @@ function Posts(){
                 setPosts(result.posts);
             }
             else {
-                throw new Error("Internal Server Error")
+                setError("Oops! looks like there has been an error on our side :(")
             }
         }
         fetchPosts();
     }, [])
+    if(!posts){
+        return <div className={styles.center}><p>Loading...</p></div>
+    }
+    if(error){
+        return <div className={styles.center}><p>{error}</p></div>
+    }
     return (
         <div className={styles.postContainer}>
             {posts.map((post) => (

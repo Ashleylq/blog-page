@@ -24,33 +24,28 @@ function Signup(){
     const submit = async (e) => {
         e.preventDefault();
         if(passwords.password !== passwords.confirmPassword) return;
-        try{
-            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}auth/signup`, {
-                method : "POST",
-                headers : {
-                    "Content-Type" : "application/json"
-                },
-                body : JSON.stringify({
-                    "username" : usernameRef.current.value,
-                    "password" : passwords.password,
-                    "confirmPassword" : passwords.confirmPassword,
-                    "email" : emailRef.current.value
-                })
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}auth/signup`, {
+            method : "POST",
+            headers : {
+                "Content-Type" : "application/json"
+            },
+            body : JSON.stringify({
+                "username" : usernameRef.current.value,
+                "password" : passwords.password,
+                "confirmPassword" : passwords.confirmPassword,
+                "email" : emailRef.current.value
             })
-            const result = await res.json();
-            if(res.status == 400){
-                setError(result.errors[0].msg)
-            }
-            else if(res.status == 200){
-                logIn(result.token, result.user)
-                navigate("/")
-            }
-            else {
-                throw new Error("Internal Server Error")
-            }
+        })
+        const result = await res.json();
+        if(res.status == 400){
+            setError(result.errors[0].msg)
         }
-        catch(err){
-            throw(err)
+        else if(res.status == 200){
+            logIn(result.token, result.user)
+            navigate("/")
+        }
+        else {
+            setError("Oops! looks like there has been an error on our side :(")
         }
     }
     return (

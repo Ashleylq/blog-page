@@ -5,7 +5,8 @@ import userContext from "../../userContext";
 
 function PostDetails(){
     const navigate = useNavigate()
-    const [post, setPost] = useState(null)
+    const [post, setPost] = useState(null);
+    const [error, setError] = useState(null)
     const { id } = useParams();
     const { accessToken, logOut } = useContext(userContext);
     const commentRef = useRef(null);
@@ -27,15 +28,15 @@ function PostDetails(){
                 })
                 setPost(result.post);
             }
-            else if(res.status == 404){
-                throw new Response("Resource not found", {status : 404})
-            }
             else if(res.status == 401){
                 logOut();
                 navigate("/login")
             }
+            else if(res.status == 404){
+                setError("Looks like the resource you are searching for does not exist");
+            }
             else {
-                throw new Response("Internal server error", {status : 500});
+                setError("Oops! Looks like there has been an error on our side :(");
             }
         }
         fetchPost();
@@ -59,9 +60,15 @@ function PostDetails(){
             setPost(copy);
             commentRef.current.value = "";
         }
+        else {
+            setError("Oops! looks like there has been an error on our side :(")
+        }
     }
     if(!post){
-        return <>Loading</>
+        return <div className={styles.center}><p>Loading...</p></div>
+    }
+    if(error){
+        return <div className={styles.center}><p>{error}</p></div>
     }
     return (
         <>
@@ -77,14 +84,14 @@ function PostDetails(){
                 <button className={styles.button} type="submit">Comment</button>
             </form>
             {post.comments.map((comment) => (
-                <Comment comment={comment} setPost={setPost} post={post}/>
+                <Comment comment={comment} setPost={setPost} post={post} setError={setError}/>
             ))}
         </div>
         </>
     )
 }
 
-function Comment({comment, setPost, post}){
+function Comment({comment, setPost, post, setError}){
     // possible functions : view edit
     const {accessToken} = useContext(userContext);
     const [func, setFunc] = useState("view");
@@ -101,6 +108,9 @@ function Comment({comment, setPost, post}){
             const newComments = copy.comments.filter(val => val.id !== comment.id);
             copy.comments = newComments;
             setPost(copy);
+        }
+        else {
+            setError("Oops! looks like there has been an error on our side")
         }
     }
     async function editComment(e, text){
@@ -124,6 +134,9 @@ function Comment({comment, setPost, post}){
             })
             setPost(copy)
             setFunc("view")
+        }
+        else {
+            setError("Oops! looks like there has been an error on our side :(")
         }
     }
     return (

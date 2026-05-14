@@ -63,3 +63,14 @@
     font-size: 0.9rem;
     color : black;
 }
+
+.center{
+    display : flex;
+    height : 100%;
+    justify-content: center;
+    align-items: center;
+    p{
+        text-align: center;
+        font-family: "Faculty Glyphic";
+    }
+}

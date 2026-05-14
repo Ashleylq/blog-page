@@ -5,7 +5,7 @@
 }
 
 .post {
-    background-color : var(--jasmine);
+    background-color : var(--lightpowder);
     border-radius : 10px;
     padding : 30px 15px;
     font-weight : bold;
@@ -13,4 +13,9 @@
     font-family : "Faculty Glyphic";
     text-align : center;
     max-width : max-content;
+}
+
+a {
+    text-decoration : none;
+    color : black;
 }

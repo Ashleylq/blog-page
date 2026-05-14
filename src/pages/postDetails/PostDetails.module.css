@@ -1,0 +1,65 @@
+.container {
+    font-family : "Faculty Glyphic";
+    width : 80%;
+    margin : 10px auto;
+    h1 {
+        text-align : center;
+    }
+    .user {
+        font-weight : bold;
+        font-size : 0.8rem;
+        text-align : right
+    }
+    .date {
+        font-size : 0.8rem;
+        text-align : right;
+        font-weight : light;
+    }
+    .text {
+        text-align: center;
+    }
+}
+
+.comment {
+    margin : 10px;
+    width : max-content;
+    padding : 10px;
+    font-family : "Faculty Glyphic";
+    background-color: var(--strawberry);
+    border-radius: 10px;
+    p {
+        margin : 2px;
+    }
+    .user {
+        font-weight: bold;
+        font-size : 0.9rem
+    }
+    .date {
+        font-size: 0.8rem;
+        font-weight: light;
+    }
+    input {
+        font-size : 1rem;
+        margin-right : 10px;
+        border-width : 2px;
+        border-radius : 5px;
+        border-style : none;
+    }
+    input:focus {
+        outline-style: none;
+        border-style: solid;
+        border-color: var(--aqua);
+    }
+}
+
+.button {
+    display : inline-block;
+    margin-right : 5px;
+    margin-top : 5px;
+    padding : 5px;
+    border-style : none;
+    background-color : var(--mint);
+    border-radius : 5px;
+    font-size: 0.9rem;
+    color : black;
+}

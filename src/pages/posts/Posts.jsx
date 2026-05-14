@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Posts.module.css";
+import { NavLink } from "react-router";
 
 function Posts(){
     const [posts, setPosts] = useState([]);
@@ -8,7 +9,7 @@ function Posts(){
             const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}posts`)
             const result = await res.json();
             if(res.status == 200){
-                setPosts(result);
+                setPosts(result.posts);
             }
             else {
                 throw new Error("Internal Server Error")
@@ -19,7 +20,7 @@ function Posts(){
     return (
         <div className={styles.postContainer}>
             {posts.map((post) => (
-                <div className={styles.post}>{post.title}</div>
+                <NavLink to={`/posts/${post.id}`}><div className={styles.post}>{post.title}</div></NavLink>
             ))}
         </div>
     )

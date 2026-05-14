@@ -7,6 +7,7 @@ import Login from "./pages/auth/Login.jsx";
 import Posts from "./pages/posts/Posts.jsx";
 import About from "./pages/about/About.jsx";
 import "./index.css";
+import PostDetails from './pages/postDetails/PostDetails.jsx';
 
 const router = createBrowserRouter([{
   path : "/",
@@ -31,6 +32,10 @@ const router = createBrowserRouter([{
     {
       path : "about",
       element : <About/>
+    },
+    {
+      path : "posts/:id",
+      element : <PostDetails/>
     }
   ]
 }])

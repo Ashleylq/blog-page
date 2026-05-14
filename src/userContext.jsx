@@ -4,7 +4,8 @@ const userContext = createContext({
     user : {},
     accessToken : null,
     logIn : () => {},
-    getCredentials : () => {}
+    getCredentials : () => {},
+    logOut : () => {}
 })
 
 export default userContext

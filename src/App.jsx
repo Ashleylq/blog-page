@@ -21,6 +21,11 @@ function App(){
         setUser(user);
         setAccessToken(accessToken);
     }
+    const logOut = () => {
+        setAccessToken(null);
+        setUser({});
+        localStorage.clear();
+    }
     useEffect(() => {
         async function runAsync(){
             await getCredentials();
@@ -28,7 +33,7 @@ function App(){
         runAsync()
     }, [])
     return (
-        <userContext.Provider value={{user, accessToken, logIn, getCredentials}}>
+        <userContext.Provider value={{user, accessToken, logIn, getCredentials, logOut}}>
             <Navbar/>
             <Outlet/>
         </userContext.Provider>

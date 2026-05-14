@@ -9,6 +9,7 @@
 }
 
 .link {
+    font-size : 1rem;
     text-decoration: none;
     color : black;
     font-family : "Faculty Glyphic";
@@ -16,6 +17,7 @@
 }
 
 .bLink{
+    border-style : none;
     background-color : var(--mint);
     border-radius : 7px;
 }

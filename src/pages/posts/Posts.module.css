@@ -1,10 +1,11 @@
 .postContainer{
     margin : 20px;
     display : grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .post {
+    min-width : 0;
     background-color : var(--lightpowder);
     border-radius : 10px;
     padding : 30px 15px;
@@ -13,6 +14,7 @@
     font-family : "Faculty Glyphic";
     text-align : center;
     max-width : max-content;
+    overflow-wrap : break-word;
 }
 
 a {
